@@ -4,6 +4,7 @@ require 'dm-migrations'
 require 'dm-core'
 
 DataMapper::setup(:default, "sqlite:db/dcm4chee.db")
+# DataMapper::setup(:default, “sqlite::memory:”)
 DataMapper::Logger.new(STDOUT, :debug)
 
 Dcm4chee.configure do
@@ -12,6 +13,7 @@ Dcm4chee.configure do
 
   repository_name :dcm4chee
   repository_uri "sqlite:db/dcm4chee.db"
+# repository_uri "sqlite::memory:"
 end
 
 DataMapper.finalize.auto_migrate!
